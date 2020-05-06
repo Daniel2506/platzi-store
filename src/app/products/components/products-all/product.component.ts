@@ -9,7 +9,7 @@ import {
     DoCheck,
     OnDestroy
 } from '@angular/core';
-import { Product } from '../product.model';
+import { Product } from '../../../product.model';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { Product } from '../product.model';
     styleUrls: ['./product.component.scss']
 })
 
-export class ProductComponent implements OnInit, DoCheck, OnDestroy {
+export class ProductAllComponent implements OnInit, DoCheck, OnDestroy {
     @Input() product: Product;
 
     @Output() productClicked: EventEmitter<any> = new EventEmitter();
