@@ -25,10 +25,6 @@ const routes: Routes = [
         loadChildren: () => import('./products/products.module').then( m => m.ProductsModule)
       },
       {
-        path: 'products/:id',
-        loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductsDetailModule)
-      },
-      {
         path: 'contact',
         canActivate: [AdminGuard],
         loadChildren: () => import('./contact/contact.module').then( m => m.ContactModule)
@@ -36,12 +32,16 @@ const routes: Routes = [
       {
         path: 'demo',
         component: DemoComponent
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
       }
     ]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
