@@ -4,28 +4,19 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../material/material.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { MaterialModule } from '../material/material.module';
+import { FormProductComponent } from './components/form-product/form-product.component';
+
 
 @NgModule({
-  declarations: [ProductFormComponent, NavigationComponent],
+  declarations: [ProductFormComponent, NavigationComponent, ProductsListComponent, FormProductComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
   ]
 })
 export class AdminModule { }
