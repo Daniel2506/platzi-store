@@ -22,22 +22,30 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        loadChildren: () => import('./products/products.module').then( m => m.ProductsModule)
+        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
       },
       {
         path: 'contact',
-        canActivate: [AdminGuard],
-        loadChildren: () => import('./contact/contact.module').then( m => m.ContactModule)
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
       },
       {
         path: 'demo',
         component: DemoComponent
-      }
+      },
+      {
+        path: 'order',
+        loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
+      },
     ]
   },
   {
     path: 'admin',
+    canActivate: [AdminGuard],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '**',

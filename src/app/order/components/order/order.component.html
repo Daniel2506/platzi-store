@@ -1,0 +1,85 @@
+<mat-horizontal-stepper>
+    <mat-step>
+        <ng-template matStepLabel>Verificar productos</ng-template>
+        <div *ngIf="(products$ | async) as products">
+
+            <!-- {{products | listOrder}} -->
+            <p *ngIf="products.length === 0" class="row">
+                No hay productos
+            </p>
+            <div *ngIf="products.length > 0" class="row header-order">
+                <div class="col-md-2 col-xs-3">
+                    <div class="box"> Acciones </div>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                    <div class="box text-center"> Producto </div>
+                </div>
+
+                <div class="col-md-1 col-xs-3">
+                    <div class="box"> Cantidad </div>
+                </div>
+
+                <div class="col-md-3 col-xs-3">
+                    <div class="box text-rigth"> Valor Unitario</div>
+                </div>
+
+
+                <div class="col-md-3 col-xs-3">
+                    <div class="box text-rigth"> Valor</div>
+                </div>
+            </div>
+
+            <div class="row header-order-row" *ngFor="let product of products | listOrder">
+                <div class="col-md-2 col-xs-3">
+                    <div class="box text-padding-top">
+                        <button mat-icon-button class="color-add" matTooltip="Agregar al carrito">
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                        <button mat-icon-button class="color-delete" matTooltip="Eliminar del carrito">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-12">
+                    <div class="box text-center">
+                        <div>{{product.title}}</div>
+                        <img [src]="product.image" alt="">
+                    </div>
+                </div>
+
+                <div class="col-md-1 col-xs-3">
+                    <div class="box text-padding-top text-center"> {{ product.cant }} </div>
+                </div>
+
+                <div class="col-md-3 col-xs-3">
+                    <div class="box text-padding-top text-rigth">
+                        {{ product.price | currency }}
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-3">
+                    <div class="box text-padding-top text-rigth"> {{ product.valorItem | currency}} </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9 col-xs-9">
+                    <div class="box text-padding-top text-rigth"><b>TOTAL</b></div>
+                </div>
+    
+                <div class="col-md-3 col-xs-3">
+                    <div class="box text-padding-top text-rigth"> {{ products  | totalOrder | currency}} </div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Datos perosnales</ng-template>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Pago</ng-template>
+
+    </mat-step>
+</mat-horizontal-stepper>

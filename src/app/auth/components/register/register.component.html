@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="register($event)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                        <mat-label>Ingresa Email</mat-label>
+                        <input matInput placeholder="email@example.com" formControlName="email" required>
+                        <mat-error *ngIf="form.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                        <mat-label>Ingresa Contraseña</mat-label>
+                        <input matInput formControlName="password" [type]="hidePswd ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hidePswd = !hidePswd"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePswd">
+                            <mat-icon>{{hidePswd ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button [disabled]="form.invalid" mat-raised-button type="submit" color="primary">Register</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

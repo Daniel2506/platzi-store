@@ -18,6 +18,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +45,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LayoutModule,
     MatPaginatorModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatStepperModule,
+    MatDividerModule,
+    MatTooltipModule
   ],
   exports: [
     MatButtonModule,
@@ -59,7 +67,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LayoutModule,
     MatPaginatorModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatStepperModule,
+    MatDividerModule,
+    MatTooltipModule
   ]
 })
 export class MaterialModule { }
